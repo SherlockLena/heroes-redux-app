@@ -1,0 +1,42 @@
+{
+  "heroes": [
+    {
+      "id": "6d8f15aa-1a2d-4b60-84ca-f23390115f36",
+      "name": "New hero",
+      "description": "test this app",
+      "element": "wind"
+    }
+  ],
+  "filters": [
+    {
+      "id": "all",
+      "name": "all",
+      "label": "Все",
+      "btnStyle": "btn btn-outline-dark"
+    },
+    {
+      "id": "fire",
+      "name": "fire",
+      "label": "Огонь",
+      "btnStyle": "btn btn-danger"
+    },
+    {
+      "id": "water",
+      "name": "water",
+      "label": "Вода",
+      "btnStyle": "btn btn-primary"
+    },
+    {
+      "id": "wind",
+      "name": "wind",
+      "label": "Ветер",
+      "btnStyle": "btn btn-success"
+    },
+    {
+      "id": "earth",
+      "name": "earth",
+      "label": "Земля",
+      "btnStyle": "btn btn-secondary"
+    }
+  ]
+}
