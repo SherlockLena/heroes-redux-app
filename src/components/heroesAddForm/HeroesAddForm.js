@@ -4,12 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { heroAdded } from '../heroesList/heroesSlice';
 import { selectAll } from '../heroesFilters/filtersSlice';
+import { useCreateHeroMutation } from '../api/apiSlice';
 import store from '../../store';
 
 const HeroesAddForm = () => {
     const [heroName, setHeroName] = useState('');
     const [heroDesc, setHeroDesc] = useState('');
     const [heroElem, setHeroElem] = useState('');
+
+    const [createHero, {isLoading}] = useCreateHeroMutation();
 
     const {filtersLoadingStatus} = useSelector(state => state.filters);
     const filters = selectAll(store.getState());
@@ -26,9 +29,7 @@ const HeroesAddForm = () => {
             element: heroElem
         };
 
-        request("http://localhost:3001/heroes", "POST", JSON.stringify(newHero))
-            .then(dispatch(heroAdded(newHero)))
-            .catch(err => console.log(err));
+        createHero(newHero).unwrap();
 
         setHeroName('');
         setHeroDesc('');
